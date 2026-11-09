@@ -51,18 +51,18 @@ business's UTC offset (default 210 minutes = Iran, UTC+3:30).
 
 ## Endpoints
 
-| Method | Path | Access | Description |
-|--------|------|--------|-------------|
-| POST | `/api/auth/register` | public | Create a customer account, returns a token |
-| POST | `/api/auth/login` | public | Log in, returns a token |
-| GET | `/api/auth/me` | user | Current user |
-| GET | `/api/services` | public | List active services |
-| GET | `/api/services/:id/availability?date=YYYY-MM-DD` | public | Free start times that day |
-| POST / PATCH / DELETE | `/api/services[/:id]` | admin | Manage services (DELETE deactivates) |
-| POST | `/api/bookings` | user | Book a slot |
-| GET | `/api/bookings` | user | Own bookings (admin: all). Filters: `status`, `from`, `to`, `page`, `limit` |
-| GET | `/api/bookings/:id` | owner/admin | One booking |
-| PATCH | `/api/bookings/:id/cancel` | owner/admin | Cancel a future booking |
+| Method                | Path                                             | Access      | Description                                                                 |
+| --------------------- | ------------------------------------------------ | ----------- | --------------------------------------------------------------------------- |
+| POST                  | `/api/auth/register`                             | public      | Create a customer account, returns a token                                  |
+| POST                  | `/api/auth/login`                                | public      | Log in, returns a token                                                     |
+| GET                   | `/api/auth/me`                                   | user        | Current user                                                                |
+| GET                   | `/api/services`                                  | public      | List active services                                                        |
+| GET                   | `/api/services/:id/availability?date=YYYY-MM-DD` | public      | Free start times that day                                                   |
+| POST / PATCH / DELETE | `/api/services[/:id]`                            | admin       | Manage services (DELETE deactivates)                                        |
+| POST                  | `/api/bookings`                                  | user        | Book a slot                                                                 |
+| GET                   | `/api/bookings`                                  | user        | Own bookings (admin: all). Filters: `status`, `from`, `to`, `page`, `limit` |
+| GET                   | `/api/bookings/:id`                              | owner/admin | One booking                                                                 |
+| PATCH                 | `/api/bookings/:id/cancel`                       | owner/admin | Cancel a future booking                                                     |
 
 ## Example
 
@@ -87,7 +87,10 @@ list of slots it occupies: a 90-minute booking occupies 3. The `Booking` collect
 **unique index on that list, restricted to confirmed bookings**:
 
 ```js
-bookingSchema.index({ slots: 1 }, { unique: true, partialFilterExpression: { status: 'confirmed' } });
+bookingSchema.index(
+  { slots: 1 },
+  { unique: true, partialFilterExpression: { status: "confirmed" } },
+);
 ```
 
 If two requests try to take the same slot, the database accepts one and rejects the
@@ -117,3 +120,5 @@ integration, a React or Telegram-bot front end on top of this API.
 ## Author
 
 Matin: backend developer (Node.js, Express, MongoDB). Available for freelance work.
+Email : matin.taghizade.official@gmail.com
+Telegram ID : matin_tgh1
