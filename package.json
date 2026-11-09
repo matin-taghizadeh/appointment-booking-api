@@ -1,0 +1,26 @@
+{
+  "name": "appointment-booking-api",
+  "version": "1.0.0",
+  "description": "Appointment booking REST API with JWT auth, roles, and race-safe double-booking prevention. Node.js, Express, MongoDB.",
+  "type": "module",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node scripts/seed.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.6.0"
+  },
+  "license": "MIT",
+  "optionalDependencies": {
+    "mongodb-memory-server": "^10.0.0"
+  }
+}
